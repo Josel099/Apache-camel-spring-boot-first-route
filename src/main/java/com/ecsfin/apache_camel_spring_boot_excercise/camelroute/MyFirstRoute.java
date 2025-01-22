@@ -11,8 +11,13 @@ public class MyFirstRoute extends RouteBuilder {
     Logger log = LoggerFactory.getLogger(MyFirstRoute.class);
     @Override
     public void configure() throws Exception {
-        from("timer:myTimer?period=10000")
-                .log("Hello World")
+        from("timer:myTimer?period={{periodSec}}")
+                .routeId("Hello World")
+                .routeDescription("This route will display Hello world to the screen")
+//                .log("Hello World")
+                .log("${body}")
+                .transform().constant("Hello World")
+                .log("${body}")
                 .to("log:myLog");
     }
 }
