@@ -17,6 +17,8 @@ public class MyDataRoute extends RouteBuilder {
      *  noop => no operation to override program.
      *  no backup in .camel folder
      *  avoid sending duplicates
+     *  "file:/home/joselxavier/Desktop/source?noop=true"
+     *
      */
     @Override
     public void configure() throws Exception {
